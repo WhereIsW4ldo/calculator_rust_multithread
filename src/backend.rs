@@ -52,27 +52,27 @@ impl Backend {
     {
         if message.contains("+")
         {
-            let number = message.strip_prefix("+").unwrap().strip_prefix(" ").unwrap();
+            let number = message.strip_prefix("+").unwrap().trim();
             self.last_value += number.parse::<f64>().unwrap();
         }
         else if message.contains("-")
         {
-            let number = message.strip_prefix("-").unwrap().strip_prefix(" ").unwrap();
+            let number = message.strip_prefix("-").unwrap().trim();
             self.last_value -= number.parse::<f64>().unwrap();
         }
         else if message.contains("*")
         {
-            let number = message.strip_prefix("*").unwrap().strip_prefix(" ").unwrap();
+            let number = message.strip_prefix("*").unwrap().trim();
             self.last_value *= number.parse::<f64>().unwrap();
         }
         else if message.contains("/")
         {
-            let number = message.strip_prefix("/").unwrap().strip_prefix(" ").unwrap();
+            let number = message.strip_prefix("/").unwrap().trim();
             self.last_value /= number.parse::<f64>().unwrap();
         }
         else if message.contains("%")
         {
-            let number = message.strip_prefix("%").unwrap().strip_prefix(" ").unwrap();
+            let number = message.strip_prefix("%").unwrap().trim();
             self.last_value %= number.parse::<f64>().unwrap();
         }
         return self.last_value;
